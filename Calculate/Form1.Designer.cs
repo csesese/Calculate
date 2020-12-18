@@ -75,7 +75,7 @@ namespace Calculate
             this.btn_num_2.TabIndex = 1;
             this.btn_num_2.Text = "2";
             this.btn_num_2.UseVisualStyleBackColor = true;
-            this.btn_num_2.Click += new System.EventHandler(this.btn_num_2_Click);
+            this.btn_num_2.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_3
             // 
@@ -85,7 +85,7 @@ namespace Calculate
             this.btn_num_3.TabIndex = 2;
             this.btn_num_3.Text = "3";
             this.btn_num_3.UseVisualStyleBackColor = true;
-            this.btn_num_3.Click += new System.EventHandler(this.btn_num_3_Click);
+            this.btn_num_3.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_4
             // 
@@ -95,7 +95,7 @@ namespace Calculate
             this.btn_num_4.TabIndex = 3;
             this.btn_num_4.Text = "4";
             this.btn_num_4.UseVisualStyleBackColor = true;
-            this.btn_num_4.Click += new System.EventHandler(this.btn_num_4_Click);
+            this.btn_num_4.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_5
             // 
@@ -105,7 +105,7 @@ namespace Calculate
             this.btn_num_5.TabIndex = 4;
             this.btn_num_5.Text = "5";
             this.btn_num_5.UseVisualStyleBackColor = true;
-            this.btn_num_5.Click += new System.EventHandler(this.btn_num_5_Click);
+            this.btn_num_5.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_6
             // 
@@ -115,7 +115,7 @@ namespace Calculate
             this.btn_num_6.TabIndex = 5;
             this.btn_num_6.Text = "6";
             this.btn_num_6.UseVisualStyleBackColor = true;
-            this.btn_num_6.Click += new System.EventHandler(this.btn_num_6_Click);
+            this.btn_num_6.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_7
             // 
@@ -125,7 +125,7 @@ namespace Calculate
             this.btn_num_7.TabIndex = 6;
             this.btn_num_7.Text = "7";
             this.btn_num_7.UseVisualStyleBackColor = true;
-            this.btn_num_7.Click += new System.EventHandler(this.btn_num_7_Click);
+            this.btn_num_7.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_8
             // 
@@ -135,7 +135,7 @@ namespace Calculate
             this.btn_num_8.TabIndex = 7;
             this.btn_num_8.Text = "8";
             this.btn_num_8.UseVisualStyleBackColor = true;
-            this.btn_num_8.Click += new System.EventHandler(this.btn_num_8_Click);
+            this.btn_num_8.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_9
             // 
@@ -145,7 +145,7 @@ namespace Calculate
             this.btn_num_9.TabIndex = 8;
             this.btn_num_9.Text = "9";
             this.btn_num_9.UseVisualStyleBackColor = true;
-            this.btn_num_9.Click += new System.EventHandler(this.btn_num_9_Click);
+            this.btn_num_9.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_num_0
             // 
@@ -155,7 +155,7 @@ namespace Calculate
             this.btn_num_0.TabIndex = 9;
             this.btn_num_0.Text = "0";
             this.btn_num_0.UseVisualStyleBackColor = true;
-            this.btn_num_0.Click += new System.EventHandler(this.btn_num_0_Click);
+            this.btn_num_0.Click += new System.EventHandler(this.btn_num_1_Click);
             // 
             // btn_plumin
             // 
@@ -303,9 +303,10 @@ namespace Calculate
             // 
             // text_Result
             // 
+            this.text_Result.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.text_Result.Location = new System.Drawing.Point(139, 64);
             this.text_Result.Name = "text_Result";
-            this.text_Result.Size = new System.Drawing.Size(175, 21);
+            this.text_Result.Size = new System.Drawing.Size(175, 26);
             this.text_Result.TabIndex = 1;
             this.text_Result.Text = "0";
             // 

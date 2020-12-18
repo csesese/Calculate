@@ -18,11 +18,8 @@ namespace Calculate
         string cal;//사칙 연산 저장
         Double R;//사칙연산 후 결과 값
 
-        //string[] cals= { };
-        //string[] num;
         List<string> cals = new List<string>();
         List<string> number = new List<string>();
-
 
 
         public Form1()
@@ -31,24 +28,20 @@ namespace Calculate
             InitializeComponent();
         }
 
-        //공통 메서드 : 숫자버튼 클릭하여서 texbox 에 출력
+        //공통 메서드 : 숫자버튼 클릭하여서 textbox 에 출력
         public void PrintResult(string x)
         {
-
+            //계산이 완료된거면 지우고 다시 시작
             if (pre_Result.Text.Contains("="))
             {
                 pre_Result.Clear();
-                text_Result.Clear();
-                
+                text_Result.Clear();                
                 cals.Clear();
             }
 
 
-
-            //num 배열에 값 추가
-            //num.Add(x);
             
-            //text가 비어있지 않으면 추가
+            //text가 비어있지 않으면 이어서 추가
             if (text_Result.TextLength != 0)
             {   //초기값 일때는 제외
                 if (text_Result.Text.Equals("0"))
@@ -108,73 +101,73 @@ namespace Calculate
         //숫자 버튼 클릭 
         private void btn_num_1_Click(object sender, EventArgs e)
         {
-            string num = btn_num_1.Text;
-            PrintResult(num);
+            Button btn = sender as Button;
+            string num;
+            switch ( btn.Name)
+            {
+                case "btn_num_0":
+                    num = btn_num_0.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_1":
+                    num = btn_num_1.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_2":
+                    num = btn_num_2.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_3":
+                    num = btn_num_3.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_4":
+                    num = btn_num_4.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_5":
+                    num = btn_num_5.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_6":
+                    num = btn_num_6.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_7":
+                    num = btn_num_7.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_8":
+                    num = btn_num_8.Text;
+                    PrintResult(num);
+                    break;
+
+                case "btn_num_9":
+                    num = btn_num_9.Text;
+                    PrintResult(num);
+                    break;
+
+            }
         }
 
-        private void btn_num_2_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_2.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_3_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_3.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_4_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_4.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_5_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_5.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_6_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_6.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_7_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_7.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_8_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_8.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_9_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_9.Text;
-            PrintResult(num);
-        }
-
-        private void btn_num_0_Click(object sender, EventArgs e)
-        {
-            string num = btn_num_0.Text;
-            PrintResult(num);
-        }
 
 
-        //CLEAR 현재 입력값을 0으로 초기화
+        //CLEAR 현재 입력값을 0으로 초기화 (CLEAR)
         private void btn_clear_Click(object sender, EventArgs e)
         {
             text_Result.Clear();
             text_Result.Text = "0";
         }
 
-        //문자열중에 마지막 숫자 지우기 
+        //문자열중에 마지막 숫자 지우기 (del)
         private void btn_del_Click(object sender, EventArgs e)
         {
             int str = text_Result.TextLength; //현재 문자열 길이
@@ -190,7 +183,7 @@ namespace Calculate
 
 
         }
-        //모든 것을 초기화
+        //모든 것을 초기화 (C)
         private void btn_c_Click(object sender, EventArgs e)
         {
             text_Result.Clear();
@@ -200,6 +193,7 @@ namespace Calculate
             number.Clear();
             cals.Clear();
         }
+
         //소수점 처리
         private void btn_dot_Click(object sender, EventArgs e)
         {
@@ -220,7 +214,7 @@ namespace Calculate
             //정수를 문자열로 변환
             string intNum = Convert.ToString(outNum);
 
-            text_Result.Text = intNum;
+            text_Result.Text = (intNum);
 
 
 
@@ -281,13 +275,13 @@ namespace Calculate
 
             string[] nums = pre_Result.Text.Split(new char[] { '+', '-', '*', '÷' });
 
-            MessageBox.Show("%%%%" + nums[0] + nums[1] + nums[2]);
+           
             number = nums.ToList();
 
 
             //초기값 S1 지정 
             string s1 = number[0];
-            MessageBox.Show("~~~" +s1);
+            
             Double R1 = Convert.ToDouble(s1);
 
             string s2;
