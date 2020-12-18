@@ -20,9 +20,9 @@ namespace Calculate
         Double R;//사칙연산 후 결과 값
 
         //string[] cals= { };
-        //string[] num = { };
+        //string[] num;
         List<string> cals = new List<string>();
-        List<string> num = new List<string>();
+        List<string> number = new List<string>();
 
 
 
@@ -31,22 +31,23 @@ namespace Calculate
 
             InitializeComponent();
         }
+
         //공통 메서드 : 숫자버튼 클릭하여서 texbox 에 출력
-        public void printResult(string x)
+        public void PrintResult(string x)
         {
 
             if (pre_Result.Text.Contains("="))
             {
                 pre_Result.Clear();
                 text_Result.Clear();
-                num.Clear();
+                
                 cals.Clear();
             }
 
 
 
             //num 배열에 값 추가
-            num.Add(x);
+            //num.Add(x);
             
             //text가 비어있지 않으면 추가
             if (text_Result.TextLength != 0)
@@ -66,7 +67,7 @@ namespace Calculate
 
 
         //공통메서드 : 사칙연산버튼을 클릭하여서 위에 pre_Result textbox 에 출력
-        public void printPreResult()
+        public void PrintPreResult()
         {
             //계산이 완료된 것에 이어서 계산하면 결과값을 기준으로 연산 다시 시작
             if (pre_Result.Text.Contains("="))
@@ -74,6 +75,7 @@ namespace Calculate
 
                 pre_Result.Clear();
                 pre_Result.Text = text_Result.Text;
+                cals.Clear();
             }
 
             else
@@ -108,61 +110,61 @@ namespace Calculate
         private void btn_num_1_Click(object sender, EventArgs e)
         {
             string num = btn_num_1.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_2_Click(object sender, EventArgs e)
         {
             string num = btn_num_2.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_3_Click(object sender, EventArgs e)
         {
             string num = btn_num_3.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_4_Click(object sender, EventArgs e)
         {
             string num = btn_num_4.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_5_Click(object sender, EventArgs e)
         {
             string num = btn_num_5.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_6_Click(object sender, EventArgs e)
         {
             string num = btn_num_6.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_7_Click(object sender, EventArgs e)
         {
             string num = btn_num_7.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_8_Click(object sender, EventArgs e)
         {
             string num = btn_num_8.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_9_Click(object sender, EventArgs e)
         {
             string num = btn_num_9.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
         private void btn_num_0_Click(object sender, EventArgs e)
         {
             string num = btn_num_0.Text;
-            printResult(num);
+            PrintResult(num);
         }
 
 
@@ -196,7 +198,7 @@ namespace Calculate
             pre_Result.Clear();
             text_Result.Text = "0";
 
-            num.Clear();
+            number.Clear();
             cals.Clear();
         }
         //소수점 처리
@@ -230,7 +232,7 @@ namespace Calculate
         //덧셈
         private void btn_plus_Click(object sender, EventArgs e)
         {
-            printPreResult();
+            PrintPreResult();
             pre_Result.AppendText("+");
 
             cal = "plus";
@@ -241,7 +243,7 @@ namespace Calculate
         //뺄셈
         private void btn_minus_Click(object sender, EventArgs e)
         {
-            printPreResult();
+            PrintPreResult();
             pre_Result.AppendText("-");
 
             cal = "minus";
@@ -250,7 +252,7 @@ namespace Calculate
         //곱셈
         private void btn_mul_Click(object sender, EventArgs e)
         {
-            printPreResult();
+            PrintPreResult();
             pre_Result.AppendText("*");
 
             cal = "mul";
@@ -260,35 +262,43 @@ namespace Calculate
         //나눗셈
         private void btn_div_Click(object sender, EventArgs e)
         {
-            printPreResult();
+            PrintPreResult();
             pre_Result.AppendText("÷");
 
             cal = "div";
-            cals.Append(cal);
+            cals.Add(cal);
         }
 
         // - 결과값 출력
         private void btn_equal_Click(object sender, EventArgs e)
         {
 
+
             //사칙연산 빼고 숫자만             
-            int len = pre_Result.TextLength;
+            //int len = pre_Result.TextLength;
             pre_Result.AppendText(text_Result.Text);
+
+            //pre_Result 에서 split 으로 해서 짤라서 num에 숫자만 들어감
+
+            string[] nums = pre_Result.Text.Split(new char[] { '+', '-', '*', '÷' });
+
+            MessageBox.Show("%%%%" + nums[0] + nums[1] + nums[2]);
+            number = nums.ToList();
 
 
             //초기값 S1 지정 
-            string s1 = num[0];
+            string s1 = number[0];
+            MessageBox.Show("~~~" +s1);
             Double R1 = Convert.ToDouble(s1);
 
             string s2;
             for (int i = 0; i < cals.Count; i++)
             {
-                s2 = num[i + 1];
+                s2 = number[i + 1]; 
+             
                 cal = cals[i];
 
-
-                //Char을 Double로 변환    
-
+                //string을  Double로 변환    
                 Double R2 = Convert.ToDouble(s2);
 
 
@@ -307,6 +317,8 @@ namespace Calculate
 
             }
 
+            output = R.ToString();
+
             //R 값이 정수이면 True, 실수이면 False
             if ((R % 1) == 1)
             {
@@ -321,6 +333,7 @@ namespace Calculate
             pre_Result.AppendText("=");
             //결과값 출력하기 
             text_Result.Text = output;
+           
 
         }
 
