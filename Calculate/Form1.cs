@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-// 소숫점 문제
 
 namespace Calculate
 {
